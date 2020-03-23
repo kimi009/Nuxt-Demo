@@ -86,22 +86,19 @@ module.exports = {
       //     }
       //   ]
       // })
-    }
+    },
+    // cssSourceMap: false,
     // optimization: {
+    //   minimize: true,
+    //   minimizer: [
+    //     // terser-webpack-plugin
+    //     // optimize-css-assets-webpack-plugin
+    //   ],
     //   splitChunks: {
-    //     chunks: 'all', //同时分割同步和异步代码,推荐。
-    //     minSize: 30000,
-    //     maxSize: 0,
-    //     minChunks: 1,
-    //     cacheGroup: {
-    //       //默认的规则不会打包,需要单独定义
-    //       a: {
-    //         test: /a\.js/,
-    //         chunks: 'all',
-    //         name: 'a',
-    //         enforce: true
-    //       }
-    //     }
+    //     chunks: 'all',
+    //     automaticNameDelimiter: '.',
+    //     name: undefined,
+    //     cacheGroups: {}
     //   }
     // }
     // productionSourceMap: false,

@@ -3,9 +3,7 @@ module.exports = {
     {
       name: 'API',
       script: 'server/index.js',
-
-      // Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
-      args: 'one two',
+      args: '',
       instances: 1,
       autorestart: true,
       watch: false,
@@ -13,7 +11,7 @@ module.exports = {
       env: {
         NODE_ENV: 'development'
       },
-      env_production: {
+      env_prod: {
         NODE_ENV: 'production'
       }
     }
