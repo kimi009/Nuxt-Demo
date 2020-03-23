@@ -6,7 +6,7 @@ const router = new Router({
 
 router.get('/info', async (ctx) => {
   const res = await new Promise((resolve) => {
-    let list = []
+    const list = []
     for (let index = 0; index < 3; index++) {
       list.push({
         id: index,
@@ -25,8 +25,8 @@ router.get('/info', async (ctx) => {
 
 router.post('/detail', async (ctx) => {
   //   const { id } = ctx.request.body
-  let res = await new Promise((resolve) => {
-    let list = []
+  const res = await new Promise((resolve) => {
+    const list = []
     for (let index = 0; index < 20; index++) {
       list.push({
         key: index,

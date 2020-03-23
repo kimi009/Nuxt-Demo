@@ -1,3 +1,4 @@
+const path = require('path')
 module.exports = {
   mode: 'universal',
   /*
@@ -65,10 +66,10 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
-      // config.resolve.alias['@ant-design/icons/lib/dist$'] = path.resolve(
-      //   __dirname,
-      //   './assets/icon/antd-icon.js'
-      // ) // 引入需要的
+      config.resolve.alias['@ant-design/icons/lib/dist$'] = path.resolve(
+        __dirname,
+        './assets/icon/antd-icon.js'
+      ) // 引入需要的
       // config.module.rules.push({
       //   test: /\.less$/,
       //   use: [
@@ -85,9 +86,13 @@ module.exports = {
       //     }
       //   ]
       // })
-    }
+    },
     // productionSourceMap: false,
     // productionGzip: true,
     // productionGzipExtensions: ['js', 'css']
+    analyze: true,
+    assetFilter(assetFilename) {
+      return assetFilename.endsWith('.js')
+    }
   }
 }
