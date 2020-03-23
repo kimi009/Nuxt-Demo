@@ -90,9 +90,9 @@ module.exports = {
     // productionSourceMap: false,
     // productionGzip: true,
     // productionGzipExtensions: ['js', 'css']
-    analyze: true,
-    assetFilter(assetFilename) {
-      return assetFilename.endsWith('.js')
-    }
+    // analyze: true,
+    // assetFilter(assetFilename) {
+    //   return assetFilename.endsWith('.js')
+    // }
   }
 }
