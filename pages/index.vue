@@ -1,32 +1,50 @@
 <template>
   <div class="page-index">
-    <test :list="list"></test>
+    {{ $store.state.home.menu }}
     <a-button type="primary" @click="toDetail">跳页面测试</a-button>
   </div>
 </template>
 
 <script>
-import Test from '@/components/Test'
 export default {
-  components: { Test },
-  async asyncData({ $axios }) {
+  layout: 'home',
+  async fetch({ store, $axios }) {
     const {
       status,
       data: { list }
-    } = await $axios.get('/user/info')
+    } = await $axios.get('http://localhost:6010/home/navInfo')
     if (status === 200) {
+      store.commit('home/setMenuList', list)
       return { list }
     }
     return { list: [] }
   },
-  data() {
-    return {
-      current: ['mail']
-    }
-  },
+  // async asyncData(ctx) {
+  //   const {
+  //     status,
+  //     data: { list }
+  //   } = await ctx.$axios.get('http://localhost:6010/user/info')
+  //   if (status === 200) {
+  //     global.console.log(ctx.store.modules)
+  //     store.commit('/home/setMenuList', list)
+  //     return { list }
+  //   }
+  //   return { list: [] }
+  // },
+  // async asyncData({ $axios }) {
+  //   const {
+  //     status,
+  //     data: { list }
+  //   } = await $axios.get('/user/info')
+  //   if (status === 200) {
+  //     return { list }
+  //   }
+  //   return { list: [] }
+  // },
   methods: {
     toDetail() {
-      location.href = '/users/111'
+      // location.href = '/users/111'
+      this.$router.push('/users/111')
     }
   }
 }
@@ -34,19 +52,5 @@ export default {
 
 <style lang="less" scoped>
 .page-index {
-  // .ant-menu {
-  //   background-color: #000000;
-  // }
-  // .ant-menu-submenu {
-  //   color: #ffffff;
-  // }
-  // .ant-menu-item-selected {
-  //   color: #1890ff;
-  // }
-  // .ant-menu-item {
-  //   a {
-  //     color: #ffffff;
-  //   }
-  // }
 }
 </style>

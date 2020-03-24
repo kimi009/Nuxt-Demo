@@ -16,7 +16,7 @@ app.use(
 const config = require('../nuxt.config.js')
 config.dev = app.env !== 'production'
 
-const user = require('./api/user')
+// const user = require('./api/user')
 
 async function start() {
   // Instantiate nuxt.js
@@ -34,7 +34,7 @@ async function start() {
     await builder.build()
   }
 
-  app.use(user.routes()).use(user.allowedMethods())
+  // app.use(user.routes()).use(user.allowedMethods())
 
   // app.use((ctx) => {
   //   ctx.status = 200
@@ -44,7 +44,7 @@ async function start() {
   // })
   app.use((ctx) => {
     ctx.status = 200 // koa defaults to 404 when it sees that status is unset
-
+    // global.console.log(new Date(),47)
     return new Promise((resolve, reject) => {
       ctx.res.on('close', resolve)
       ctx.res.on('finish', resolve)

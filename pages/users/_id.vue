@@ -55,11 +55,12 @@ const columns = [
 ]
 export default {
   async asyncData(ctx) {
+    // global.console.log('_id asyncData')
     const { id } = ctx.params
     const {
       status,
       data: { list }
-    } = await ctx.$axios.post('/user/detail', { id })
+    } = await ctx.$axios.post('http://localhost:6010/user/detail', { id })
     if (status === 200) {
       return {
         data: list
@@ -70,10 +71,30 @@ export default {
       }
     }
   },
+  // async asyncData(ctx) {
+  //   // global.console.log('_id asyncData')
+  //   const { id } = ctx.params
+  //   const {
+  //     status,
+  //     data: { list }
+  //   } = await ctx.$axios.post('/user/detail', { id })
+  //   if (status === 200) {
+  //     return {
+  //       data: list
+  //     }
+  //   } else {
+  //     return {
+  //       data: []
+  //     }
+  //   }
+  // },
   data() {
     return {
       columns
     }
+  },
+  mounted() {
+    // console.log(this.$store.state)
   }
 }
 </script>

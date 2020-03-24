@@ -15,7 +15,14 @@ module.exports = {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src: '/js/flexible.js',
+        type: 'text/javascript',
+        charset: 'utf-8'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -26,6 +33,7 @@ module.exports = {
    */
   // css: ['ant-design-vue/dist/antd.css'],
   css: [
+    '~assets/css/reset.css',
     'ant-design-vue/lib/row/style/css',
     'ant-design-vue/lib/col/style/css',
     'ant-design-vue/lib/button/style/css',
@@ -52,16 +60,47 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios'
+    // '@nuxtjs/proxy'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  // axios: {
+  //   proxy: true,
+  //   retry: {
+  //     reties: 3
+  //   },
+  //   // 开发模式下开启debug
+  //   debug: false, // process.env._ENV == 'production' ? false : true,
+  //   // 设置不同环境的请求地址
+  //   // baseURL:
+  //   //   process.env._ENV == 'production'
+  //   //     ? 'http://localhost:3000'
+  //   //     : 'http://localhost:3000',
+  //   // withCredentials: true,
+  //   // headers: { 'Content-Type': 'application/json', crossDomain: true },
+  //   timeout: 5000
+  // },
+  // proxy: [
+  //   [
+  //     '/api',
+  //     {
+  //       target: 'http://localhost:6010',
+  //       pathRewrite: { '^/api': '' }
+  //     }
+  //   ]
+  // ],
   /*
    ** Build configuration
    */
   build: {
+    // transpile: [/ant-design-vue/],
+    postcss: [
+      require('postcss-px2rem')({
+        remUnit: 100
+      })
+    ],
     /*
      ** You can extend webpack config here
      */
@@ -86,7 +125,7 @@ module.exports = {
       //     }
       //   ]
       // })
-    },
+    }
     // cssSourceMap: false,
     // optimization: {
     //   minimize: true,
