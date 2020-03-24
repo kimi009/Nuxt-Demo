@@ -1,9 +1,9 @@
 <template>
   <div>
-    <a-layout>
-      <a-layout-header>
-        <home-menu :menu-list="homeMenuList"></home-menu>
-        <!-- <a-menu v-model="current" theme="dark" mode="horizontal">
+    <div>
+      <page-header />
+      <home-menu :menu-list="homeMenuList" />
+      <!-- <a-menu v-model="current" theme="dark" mode="horizontal">
           <template v-for="item in homeMenuList">
             <a-sub-menu v-if="item.children.length" :key="item.key">
               <span slot="title" class="submenu-title-wrapper">{{
@@ -20,19 +20,24 @@
             <a-menu-item v-else :key="item.key">{{ item.name }}</a-menu-item>
           </template>
         </a-menu> -->
-      </a-layout-header>
-      <a-layout-content><nuxt /></a-layout-content>
-      <a-layout-footer>我是底部</a-layout-footer>
-    </a-layout>
+    </div>
+    <div><nuxt /></div>
+    <div>
+      <page-footer />
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import HomeMenu from '@/components/home/Menu'
+import PageHeader from '@/components/PageHeader'
+import HomeMenu from '@/components/Menu'
+import PageFooter from '@/components/PageFooter'
 export default {
   components: {
-    HomeMenu
+    PageHeader,
+    HomeMenu,
+    PageFooter
   },
   data() {
     return {

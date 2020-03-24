@@ -34,19 +34,17 @@ module.exports = {
   // css: ['ant-design-vue/dist/antd.css'],
   css: [
     '~assets/css/reset.css',
-    'ant-design-vue/lib/row/style/css',
-    'ant-design-vue/lib/col/style/css',
-    'ant-design-vue/lib/button/style/css',
-    'ant-design-vue/lib/menu/style/css',
-    'ant-design-vue/lib/table/style/css',
-    'ant-design-vue/lib/tag/style/css',
-    'ant-design-vue/lib/divider/style/css',
-    'ant-design-vue/lib/card/style/css'
+    'ant-design-vue/dist/antd.css'
+    // 'ant-design-vue/lib/row/style/css'
+    // 'ant-design-vue/lib/col/style/css',
+    // 'ant-design-vue/lib/button/style/css',
+    // 'ant-desgin-vue/lib/carousel/style/css'
+    // 'ant-desgin-vue/lib/button/style/css'
   ],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/antd-ui'],
+  plugins: ['@/plugins/antd-ui', '@/plugins/axios'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -74,10 +72,10 @@ module.exports = {
   //   // 开发模式下开启debug
   //   debug: false, // process.env._ENV == 'production' ? false : true,
   //   // 设置不同环境的请求地址
-  //   // baseURL:
-  //   //   process.env._ENV == 'production'
-  //   //     ? 'http://localhost:3000'
-  //   //     : 'http://localhost:3000',
+  // baseURL:
+  //   process.env._ENV == 'production'
+  //     ? 'http://localhost:3000'
+  //     : 'http://localhost:3000',
   //   // withCredentials: true,
   //   // headers: { 'Content-Type': 'application/json', crossDomain: true },
   //   timeout: 5000
@@ -99,6 +97,7 @@ module.exports = {
     postcss: [
       require('postcss-px2rem')({
         remUnit: 100
+        // exclude: '/node_modules|ant-design-vue'
       })
     ],
     /*

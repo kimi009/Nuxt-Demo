@@ -100,18 +100,15 @@
     // if (!isMobile) {
     //   width = width > 1200 ? width : 1200
     // }
-    console.log(100, width)
     let rem
     if (width / dpr > 540) {
       width = width * dpr
     }
-    console.log(104, width)
     if (isMobile) {
       rem = width / 7.5
     } else {
       rem = width / 19.2
     }
-    console.log(109, rem)
     docEl.style.fontSize = rem + 'px'
     flexible.rem = win.rem = rem
     // if (width / dpr > 540) {

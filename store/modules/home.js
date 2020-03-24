@@ -2,7 +2,6 @@ const state = () => ({ menuList: [] })
 
 const mutations = {
   setMenuList(state, value) {
-    console.log(5, value)
     state.menuList = value
   }
 }
