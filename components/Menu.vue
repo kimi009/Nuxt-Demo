@@ -60,7 +60,7 @@ export default {
   position: relative;
   &_content {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     height: 60px;
     background-color: #202529;
@@ -76,13 +76,14 @@ export default {
     }
   }
   &_items {
+    z-index: 100;
     width: 100%;
     position: absolute;
     padding-left: 100px;
     padding-bottom: 50px;
     background-color: #000000;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: flex-start;
     &_col {
       padding-top: 50px;

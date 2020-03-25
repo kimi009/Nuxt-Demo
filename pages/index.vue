@@ -1,19 +1,16 @@
 <template>
   <div class="page-index">
-    <a-carousel style="width:800px;height:400px;">
-      <div style="backgroundColor:#f00">
-        <img src="~/assets/img/1.jpg" />
-      </div>
-      <div><img src="~/assets/img/2.jpg" /></div>
-      <div><img src="~/assets/img/3.jpg" /></div>
-      <div><img src="~/assets/img/4.jpg" /></div>
-    </a-carousel>
+    <banner />
     <a-button type="primary" @click="toDetail">跳页面测试</a-button>
   </div>
 </template>
 
 <script>
+import Banner from '@/components/Banner'
 export default {
+  components: {
+    Banner
+  },
   layout: 'home',
   // async fetch({ store, $axios }) {
   //   const { list } = await $axios.get('/home/navInfo')
@@ -22,6 +19,7 @@ export default {
   // },
   async asyncData({ store, $axios }) {
     const { list } = await $axios.get('/home/navInfo')
+    global.console.log(list)
     store.commit('home/setMenuList', list)
     // return { list: [] }
   },
@@ -46,7 +44,6 @@ export default {
 
 <style lang="less" scoped>
 .page-index {
-  width: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: center;

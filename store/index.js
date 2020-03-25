@@ -1,18 +1,23 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import home from './modules/home'
+// import Vue from 'vue'
+// import Vuex from 'vuex'
+// import home from './home'
 
-Vue.use(Vuex)
+// Vue.use(Vuex)
 
-const store = () =>
-  new Vuex.Store({
-    modules: {
-      home
-    },
-    mutations: {
-      setM() {}
-    },
-    actions: {}
-  })
+// const store = () =>
+//   new Vuex.Store({
+//     modules: {
+//       home
+//     },
+//     mutations: {
+//       setM() {}
+//     },
+//     actions: {}
+//   })
 
-export default store
+// export default store
+export const actions = {
+  // nuxtServerInit({ commit }, req) {
+  //   global.console.log('test')
+  // }
+}

@@ -2,7 +2,7 @@ export default function({ $axios, redirect }) {
   // request interceptor
   $axios.interceptors.request.use(
     (config) => {
-      console.log('axios config')
+      // console.log('axios config')
       config.baseURL = 'http://localhost:6010'
       return config
     },
@@ -11,19 +11,20 @@ export default function({ $axios, redirect }) {
     }
   )
   $axios.onRequest((config) => {
-    console.log('Making request to ' + config.url)
+    // console.log('Making request to ' + config.url)
   })
 
   // response interceptor
   $axios.interceptors.response.use(
     (response) => {
       const res = response.data
+      global.console.log('响应数据', res)
       if (res.code === 1000) {
         return res.data
       } else {
         redirect('/404')
       }
-      return Promise.reject(new Error(res.msg || 'Error'))
+      return Promise.reject(new Error(res.msg || '响应数据异常'))
     },
     (error) => {
       return Promise.reject(error)

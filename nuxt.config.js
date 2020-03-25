@@ -94,12 +94,17 @@ module.exports = {
    */
   build: {
     // transpile: [/ant-design-vue/],
-    postcss: [
-      require('postcss-px2rem')({
+    // postcss: [
+    //   require('postcss-px2rem')({
+    //     remUnit: 100
+    //     // exclude: '/node_modules|ant-design-vue'
+    //   })
+    // ],
+    postcss: {
+      'postcss-px2rem': {
         remUnit: 100
-        // exclude: '/node_modules|ant-design-vue'
-      })
-    ],
+      }
+    },
     /*
      ** You can extend webpack config here
      */
